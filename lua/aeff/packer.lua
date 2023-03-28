@@ -25,15 +25,18 @@ return require('packer').startup(function(use)
 
   -- Syntax Highlighting
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-
-  use 'nvim-lualine/lualine.nvim'    -- Lualine statusbar
-  use 'kyazdani42/nvim-web-devicons' -- Icon support for Lualine
-  use 'neovim/nvim-lspconfig'        -- Built-in LSP for Neovim
-  use 'onsails/lspkind-nvim'         -- VSCode-like pictograms
-  use 'L3MON4D3/LuaSnip'             -- Snippet Engine
-  use 'hrsh7th/cmp-nvim-lsp'         -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/cmp-buffer'           -- nvim-cmp source for buffer words
-  use 'hrsh7th/nvim-cmp'             -- A compeletion engine plugin for neovim
-  use 'windwp/nvim-ts-autotag'       -- autotag
-  use 'windwp/nvim-autopairs'        -- autopair
+  use 'nvim-lualine/lualine.nvim'       -- Lualine statusbar
+  use 'kyazdani42/nvim-web-devicons'    -- Icon support for Lualine
+  use 'neovim/nvim-lspconfig'           -- Built-in LSP for Neovim
+  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+  use 'onsails/lspkind-nvim'            -- VSCode-like pictograms
+  use 'L3MON4D3/LuaSnip'                -- Snippet Engine
+  use 'glepnir/lspsaga.nvim'            -- LSP UIs
+  use 'hrsh7th/cmp-nvim-lsp'            -- nvim-cmp source for neovim's built-in LSP
+  use 'hrsh7th/cmp-buffer'              -- nvim-cmp source for buffer words
+  use 'hrsh7th/nvim-cmp'                -- A compeletion engine plugin for neovim
+  use 'windwp/nvim-ts-autotag'          -- autotag
+  use 'windwp/nvim-autopairs'           -- autopair
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
 end)
