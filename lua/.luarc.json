@@ -22,5 +22,8 @@
         "/Users/aeff/.config/nvim/after",
         "${3rd}/luassert/library"
     ],
-    "workspace.checkThirdParty": false
+    "workspace.checkThirdParty": false,
+    "diagnostics.disable": [
+        "undefined-global"
+    ]
 }
