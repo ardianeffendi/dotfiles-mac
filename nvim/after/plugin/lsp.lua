@@ -74,6 +74,23 @@ protocol.CompletionItemKind = {
   '', -- TypeParameter
 }
 
+-- Go
+nvim_lsp.gopls.setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    enable_format_on_save(client, bufnr)
+  end,
+  cmd = { "gopls", "serve" },
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
 -- TypeScript
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
