@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
 
   -- Syntax Highlighting
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+
   use 'nvim-lualine/lualine.nvim'       -- Lualine statusbar
   use 'kyazdani42/nvim-web-devicons'    -- Icon support for Lualine
   use 'neovim/nvim-lspconfig'           -- Built-in LSP for Neovim

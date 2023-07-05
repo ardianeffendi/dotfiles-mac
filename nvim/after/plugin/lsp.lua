@@ -32,15 +32,6 @@ local on_attach = function(client, bufnr)
   --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-
-  -- Show all diganotics on current line in floating window
-  buf_set_keymap('n', '<Leader>d', '<Cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  -- Go to next diagnostic (if there are multiple on the same line
-  -- one at a time in floating window)
-  buf_set_keymap('n', '<Leader>n', '<Cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  -- Go to prev diagnostic (if there are multiple on the same line
-  -- one at a time)
-  buf_set_keymap('n', '<Leader>p', '<Cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 end
 
 -- Setup completion using nvim_cmp with LSP source
@@ -91,10 +82,10 @@ nvim_lsp.gopls.setup {
   },
 }
 
--- TypeScript
+-- TypeScript || Javascript
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact" },
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
 }
@@ -119,6 +110,27 @@ nvim_lsp.lua_ls.setup {
       }
     }
   }
+}
+
+-- HTML
+nvim_lsp.html.setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    enable_format_on_save(client, bufnr)
+  end,
+}
+
+nvim_lsp.jsonls.setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    enable_format_on_save(client, bufnr)
+  end
+}
+
+-- TailwindCSS
+nvim_lsp.tailwindcss.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
